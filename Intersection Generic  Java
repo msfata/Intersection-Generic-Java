@@ -1,0 +1,30 @@
+package net.email;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class IntersectionGeneric {
+	public static <T> List<T> intersection(List<T> l1, List<T> l2) {
+		List<T> listToReturn = new ArrayList<T>();
+		for (T t : l1) {
+			if (!l2.contains(t)) {
+				listToReturn.add(t);
+			}
+		}
+
+		for (T t1 : l2) {
+			if (!l1.contains(t1)) {
+				listToReturn.add(t1);
+			}
+		}
+
+		return listToReturn;
+	}
+
+	public static void main(String[] args) {
+		List<Integer> list = intersection(new ArrayList<Integer>(Arrays.asList(1,2,3,4,5)),
+				new ArrayList<Integer>(Arrays.asList(1,2,3,4,6)));
+		list.forEach(v -> System.out.print(v + " "));
+	}
+}
